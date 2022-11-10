@@ -92,14 +92,14 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
-				<!-- 	<image>
+					<image>
 						<name>karthiks7678/estockmarketappv1-${project.artifactId}:${project.version}</name>
 					</image>
-					<pullPolicy>IF_NOT_PRESENT</pullPolicy> -->
+					<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 				</configuration>
 			</plugin>
 			
-			<!-- Docker -->
+			<!-- Docker
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
@@ -119,7 +119,7 @@
 					<skipDockerInfo>true</skipDockerInfo>
 				</configuration>
 			</plugin>
-			
+			 -->
 			<plugin>
 				<groupId>com.microsoft.azure</groupId>
 				<artifactId>azure-webapp-maven-plugin</artifactId>
