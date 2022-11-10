@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.EStockMarketApp</groupId>
 	<artifactId>security-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>security-service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -92,12 +92,34 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
-					<image>
+				<!-- 	<image>
 						<name>karthiks7678/estockmarketappv1-${project.artifactId}:${project.version}</name>
 					</image>
-					<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+					<pullPolicy>IF_NOT_PRESENT</pullPolicy> -->
 				</configuration>
 			</plugin>
+			
+			<!-- Docker -->
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.10</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+							<!-- <goal>push</goal> --> 
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>karthiks7678/estockmarketappv1-${project.artifactId}</repository>
+					<tag>${project.version}</tag>
+					<skipDockerInfo>true</skipDockerInfo>
+				</configuration>
+			</plugin>
+			
 			<plugin>
 				<groupId>com.microsoft.azure</groupId>
 				<artifactId>azure-webapp-maven-plugin</artifactId>

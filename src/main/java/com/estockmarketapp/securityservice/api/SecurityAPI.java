@@ -34,7 +34,9 @@ public class SecurityAPI {
 					new UsernamePasswordAuthenticationToken(authRequest.getUserName(),authRequest.getPassword())
 					);
 		}catch (Exception ex) {
-			throw new Exception("invalid user/password");
+			return new ResponseEntity<String>("invalid user/password",HttpStatus.BAD_REQUEST);
+			
+			//throw new Exception("invalid user/password");
 		}	
 		
 		return new ResponseEntity<String>(jwtUtil.generateToken(authRequest.getUserName()),HttpStatus.OK);
